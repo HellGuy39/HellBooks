@@ -38,6 +38,10 @@ constructor(
     )
     var lastReadQueueFlow = _lastReadQueueFlow.asStateFlow()
 
+    var authenticatedUserid: Int
+        get() = storage.getInt(Keys.authenticatedUserIdKey, -1)
+        set(value) = edit { putInt(Keys.authenticatedUserIdKey, value) }
+
     fun addToLastReadQueue(id: Int) {
         val list = listOfIntsConverter.stringToListOfInts(lastReadQueue)
             .toMutableList()
@@ -49,10 +53,12 @@ constructor(
 
     object Keys {
         const val lastReadQueueKey = "lastReadQueueKey"
+        const val authenticatedUserIdKey = "authenticatedUserIdKey"
     }
 
     object DefaultValues {
         const val emptyLastReadQueue = "[]"
+        const val emptyUserId = -1
     }
 
     companion object {

@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.hellguy39.hellbooks.model.Book
 import com.hellguy39.hellbooks.ui.component.item.BookItem
+import com.hellguy39.hellbooks.ui.component.placeholder.EmptyContentPlaceholder
 import com.hellguy39.hellbooks.ui.values.Spaces
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,6 +34,8 @@ fun BookmarksScreen(
             )
         }
     ) { innerPadding ->
+        EmptyContentPlaceholder(uiState.bookmarks)
+
         LazyVerticalGrid(
             modifier = Modifier
                 .fillMaxSize(),

@@ -17,6 +17,10 @@ object AppIcons {
         return if (checked) R.drawable.baseline_open_in_full_24 else R.drawable.baseline_close_fullscreen_24
     }
 
+    fun visibility(isVisible: Boolean): Int {
+        return if (isVisible) R.drawable.outline_visibility_24 else R.drawable.outline_visibility_off_24
+    }
+
     val person = R.drawable.baseline_person_24
     val calendarToday = R.drawable.baseline_calendar_today_24
     val category = R.drawable.baseline_category_24

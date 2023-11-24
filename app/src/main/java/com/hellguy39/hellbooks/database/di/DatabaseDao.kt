@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.hellguy39.hellbooks.database.HellBooksDatabase
 import com.hellguy39.hellbooks.database.dao.BookDao
+import com.hellguy39.hellbooks.database.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +31,11 @@ object DatabaseModule {
     @Provides
     fun provideBookDao(database: HellBooksDatabase): BookDao {
         return database.bookDao
+    }
+
+    @Provides
+    fun provideUserDao(database: HellBooksDatabase): UserDao {
+        return database.userDao
     }
 
 }

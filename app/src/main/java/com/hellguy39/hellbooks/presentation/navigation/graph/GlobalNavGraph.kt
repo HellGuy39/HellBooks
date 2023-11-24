@@ -2,11 +2,8 @@ package com.hellguy39.hellbooks.presentation.navigation.graph
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,7 +11,9 @@ import androidx.navigation.compose.rememberNavController
 import com.hellguy39.hellbooks.presentation.navigation.route.GlobalScreen
 import com.hellguy39.hellbooks.presentation.screen.book_detail.BookDetailRoute
 import com.hellguy39.hellbooks.presentation.screen.book_reader.BookReaderRoute
+import com.hellguy39.hellbooks.presentation.screen.login.LoginRoute
 import com.hellguy39.hellbooks.presentation.screen.main.MainRoute
+import com.hellguy39.hellbooks.presentation.screen.register.RegisterRoute
 import com.hellguy39.hellbooks.ui.values.AnimDuration
 
 @Composable
@@ -25,13 +24,19 @@ fun GlobalNavGraph(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = GlobalScreen.Main.route
+        startDestination = GlobalScreen.Login.route
     ) {
         composable(GlobalScreen.Login.route) {
-
+            LoginRoute(
+                navigateToMain = { navController.navigate(GlobalScreen.Main.route) },
+                navigateToRegister = { navController.navigate(GlobalScreen.Register.route) }
+            )
         }
         composable(GlobalScreen.Register.route) {
-
+            RegisterRoute(
+                navigateToMain = { navController.navigate(GlobalScreen.Main.route) },
+                navigateBack = { navController.popBackStack() }
+            )
         }
         composable(
             route = GlobalScreen.BookDetail.route,

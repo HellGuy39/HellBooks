@@ -1,4 +1,4 @@
-package com.hellguy39.hellbooks.data
+package com.hellguy39.hellbooks.data.repository
 
 import com.hellguy39.hellbooks.data.fake.fakeBooks
 import com.hellguy39.hellbooks.data.mapper.toBook
@@ -9,7 +9,6 @@ import com.hellguy39.hellbooks.model.Book
 import com.hellguy39.hellbooks.prefs.PrefsStorage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
